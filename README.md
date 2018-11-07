@@ -1,4 +1,5 @@
 Author: William A. Simon
+
 Date: 11/7/2018
 # Generate Hamiltonians
 ### Purpose: 
