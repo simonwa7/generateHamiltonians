@@ -9,6 +9,11 @@ MIN_THETA = 0;
 MAX_THETA = 2*math.pi;
 
 def createGeometry(bondLength, atoms, uniform, linear):
+	# This function is designed to created the intended geometry
+	# for a chain of Hydrogen atoms. The geometry is a list of 
+	# tuples wherein the first value is a string describing the
+	# molecule (H for hydrogen) and the second value is the 
+	# coordinates for the atom in 3 dimensions. 
 	index = 1;
 	geometry = list();	
 
