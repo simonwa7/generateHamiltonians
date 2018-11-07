@@ -14,7 +14,7 @@ Date: 11/7/2018
 
 <h4>Dependencies:</h4> This script utilizes the open source projects OpenFerimon and OpenFermion-psi4 to generate molecular integral data and perform the necessary transformations.
 
-<h4>Installation: with python and pip installed, simply run:</h4>
+<h4>Installation: </h4>with python and pip installed, simply run:
 pip install -r requirements.txt
 
 <h4>TODO:</h4>
