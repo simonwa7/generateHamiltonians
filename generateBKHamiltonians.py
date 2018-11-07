@@ -67,17 +67,14 @@ def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True, linear
 
 	geometry = createGeometry(bondLength, atoms, uniform, linear);
 
-	print(geometry)
 	H2.set_geometry(geometry);
 	H2.set_basis("sto-3g");
 	H2.set_multiplicity(1);
-	H2.set_charge(0);
-	H2.set_active_space_start(0);
-	H2.set_active_space_stop(atoms*2)
+	H2.set_charge(atoms-2);
 	H2.load_molecule();
 	H2.create_hamiltonians();
-	# H2.create_circuits(mapping);
-	# print(H2.getHamiltonians(mapping));
+	H2.create_circuits(mapping);
+	print(H2.getHamiltonians(mapping));
 
 generateHChain(bondLength=1, mapping="BK", atoms=5, uniform=False, linear=False);
 
