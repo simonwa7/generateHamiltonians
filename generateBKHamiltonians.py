@@ -58,7 +58,8 @@ def createGeometry(bondLength, atoms, uniform, linear):
 	return geometry;
 
 
-def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True, linear=True):
+def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True, 
+				   linear=True):
 
 	H2 = GenerateCircuit();
 	H2.set_name("HChain");
@@ -74,9 +75,64 @@ def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True, linear
 	H2.load_molecule();
 	H2.create_hamiltonians();
 	H2.create_circuits(mapping);
-	print(H2.getHamiltonians(mapping));
+	return H2.getHamiltonians(mapping);
 
-generateHChain(bondLength=1, mapping="BK", atoms=5, uniform=False, linear=False);
+
+def main():
+	mapping = raw_input('''Please specify the transformation ('BK' for Bravyi-Kitaev or 'JW' for Jordan-Wigner)\n''');
+
+	while((mapping != 'BK') and (mapping != 'JW')):
+		mapping = raw_input('''Could not understand input: {}. Please try again\n'''.format(mapping));
+
+	atoms = int(raw_input('''Please specify the number of H atoms in your chain.\nNOTE: MUST BE AN INTEGER\n'''));
+
+	while(atoms < 1):
+		atoms = int(raw_input('''Could not understand input: {}. Please try again\n'''.format(atoms)));
+
+	uniform = raw_input('''Please specify whether you would like the chain to be of uniform length (yes/no).\n''');
+
+	while((uniform != "yes") and (uniform != "no")):
+		uniform = raw_input('''Could not understand input: {}. Please try again\n'''.format(uniform));
+	if(uniform == "yes"):
+		uniform = True;
+	else:
+		uniform = False;
+
+	bondLength = "random";
+	if(uniform):
+		bondLength = float(raw_input('''Please specify the bond length between atoms (angstroms).\nNOTE: MUST BE A NUMBER (DECIMAL VALUES ACCEPTED)\n'''));
+
+		while(bondLength < 1):
+			bondLength = float(raw_input('''Could not understand input: {}. Please try again\n'''.format(bondLength)));
+
+	linear = raw_input('''Please specify whether you would like the chain to be straight (no y coordinates) (yes/no).\n''');
+
+	while((linear != "yes") and (linear != "no")):
+		linear = raw_input('''Could not understand input: {}. Please try again\n'''.format(linear));
+	if(linear == "yes"):
+		linear = True;
+	else:
+		linear = False;
+	
+	hamil = generateHChain(bondLength=bondLength, mapping=mapping, 
+						   atoms=atoms, uniform=uniform, linear=linear);
+	print("\n\n ----- HAMILTONIAN ----- \n\n");
+	print(hamil);
+
+main();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
