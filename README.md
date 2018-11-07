@@ -6,7 +6,7 @@ Purpose: The purpose of this script is to easily generate qubit hamiltonians for
 
 <h4>Usage: Through the command line, a client can define various parameters such as:</h4>
 <h6>
-	<br>transformation - Bravyi-Kitaev or Jordan-Wigner
+	transformation - Bravyi-Kitaev or Jordan-Wigner
 	<br>number of hydrogen atoms - integer
 	<br>whether or not the molecules are separated by a uniform distance - yes/no
 	<br>if they are separated by a uniform distance, what is that bond length - angstroms (float)
