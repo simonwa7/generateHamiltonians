@@ -1,4 +1,4 @@
-Author: William A. Simon
+Author: William A. Simon<br>
 Date: 11/7/2018
 <h1>Generate Hamiltonians</h1>
 <h3>
