@@ -73,7 +73,7 @@ def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True, linear
 	H2.set_multiplicity(1);
 	H2.set_charge(0);
 	H2.set_active_space_start(0);
-	H2.set_active_space_stop(atoms)
+	H2.set_active_space_stop(atoms*2)
 	H2.load_molecule();
 	H2.create_hamiltonians();
 	# H2.create_circuits(mapping);
