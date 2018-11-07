@@ -5,7 +5,7 @@ Date: 11/7/2018
 Purpose: The purpose of this script is to easily generate qubit hamiltonians for varying molecules made solely of Hydrogen chains. </h3>
 
 <h4>Usage: Through the command line, a client can define various parameters such as:
-	transformation - Bravyi-Kitaev or Jordan-Wigner
+	<br><br>transformation - Bravyi-Kitaev or Jordan-Wigner
 	number of hydrogen atoms - integer
 	whether or not the molecules are separated by a uniform distance - yes/no
 	if they are separated by a uniform distance, what is that bond length - angstroms (float)
