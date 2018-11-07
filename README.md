@@ -6,10 +6,10 @@ Purpose: The purpose of this script is to easily generate qubit hamiltonians for
 
 <h4>Usage: Through the command line, a client can define various parameters such as:
 	<br><br>transformation - Bravyi-Kitaev or Jordan-Wigner
-	number of hydrogen atoms - integer
-	whether or not the molecules are separated by a uniform distance - yes/no
-	if they are separated by a uniform distance, what is that bond length - angstroms (float)
-	if the chain is straight or randomly bent - yes/no
+	<br>number of hydrogen atoms - integer
+	<br>whether or not the molecules are separated by a uniform distance - yes/no
+	<br>if they are separated by a uniform distance, what is that bond length - angstroms (float)
+	<br>if the chain is straight or randomly bent - yes/no
 </h4>
 
 <h4>Dependencies: This script utilizes the open source projects OpenFerimon and OpenFermion-psi4 to generate molecular integral data and perform the necessary transformations.</h4>
