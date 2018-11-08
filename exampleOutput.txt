@@ -7,12 +7,18 @@ Preset Parameters:
 	Minimum bond angle = 2pi/3 (120 degrees)
 	Maximum bond angle = pi (180 degrees)
 
+
+NOTE: "Input parameters" are what I say when I mean they are the 
+		command line responses to the generated queries. If you 
+		don't understand what I mean, just try running the script.
+
+
 EXAMPLES:
 
 #1 (2 H atoms, set distance of 0.7414 A)
 
 Input parameters
-	BK 2 yes 0.7414 yes
+	BK 2 yes 0.7414 yes no
 Outputs:
 	geometry: 
 		[('H', (0, 0, 0)), ('H', (0.7414, 0, 0))]
@@ -41,7 +47,7 @@ Outputs:
 #2 (2 H atoms, random distance)
 
 Input parameters
-	BK 2 no yes
+	BK 2 no yes no
 Outputs:
 	geometry: 
 		[('H', (0, 0, 0)), ('H', (0.8055149716275483, 0, 0))]
@@ -69,7 +75,7 @@ Outputs:
 #3 (3 H atoms, set distance of 1 A, non-linear)
 
 Input parameters
-	BK 3 yes 1 no
+	BK 3 yes 1 no no
 Outputs:
 	geometry: 
 		[('H', (0, 0, 0)), ('H', (0.5569169389092157, -0.8305681929594878, 0)), ('H', (1.4605928686214398, -1.258785210438648, 0))]
@@ -144,7 +150,7 @@ Outputs:
 #4 (3 H atoms, random distance, non-linear)
 
 Input parameters
-	BK 3 no no
+	BK 3 no no no
 Outputs:
 	geometry: 
 		[('H', (0, 0, 0)), ('H', (0.5908871784804454, -0.009289928702809513, 0)), ('H', (1.3804333862411804, -0.053218599245738386, 0))]
@@ -275,7 +281,7 @@ Outputs:
 #5 (3 H atoms, random distance, linear)
 
 Input parameters
-	BK 3 no yes
+	BK 3 no yes no
 Outputs:
 	geometry: 
 		[('H', (0, 0, 0)), ('H', (0.3502479606713338, 0, 0)), ('H', (0.7898859841948307, 0, 0))]
@@ -404,7 +410,7 @@ Outputs:
 #6 (3 H atoms, set distance of 1 A, linear)
 
 Input parameters
-	BK 3 yes 1 yes
+	BK 3 yes 1 yes no
 Outputs:
 	geometry: 
 		[('H', (0, 0, 0)), ('H', (1.0, 0, 0)), ('H', (2.0, 0, 0))]
@@ -477,7 +483,7 @@ Outputs:
 #7 (5 H atoms, random distance, non-linear)
 
 Input parameters
-	BK 5 no no
+	BK 5 no no no
 Outputs:
 	geometry: 
 		[('H', (0, 0, 0)), ('H', (0.6219888833875847, 0.13058728655126411, 0)), ('H', (0.76345103574934, 0.34080889037764045, 0)), ('H', (1.0058859100276931, 0.41496597810404856, 0)), ('H', (1.1075325577794892, 0.4111567361703581, 0))]
