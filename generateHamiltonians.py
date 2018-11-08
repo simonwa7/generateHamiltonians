@@ -7,8 +7,11 @@ MAX_LENGTH = 1;
 
 # minimum bond angle is pi-MIN_THETA
 # maximum bond angle is always 180
-MIN_THETA = -math.pi/3;
-MAX_THETA = math.pi/3;
+MIN_THETA = -2*math.pi/3;
+MAX_THETA = 2*math.pi/3;
+
+MIN_PHI = -math.pi;
+MAX_PHI = math.pi;
 
 def createGeometry(bondLength, atoms, uniform, linear):
 	# This function is designed to created the intended geometry
@@ -28,6 +31,7 @@ def createGeometry(bondLength, atoms, uniform, linear):
 
 	positionX = 0;
 	positionY = 0;
+	positionZ = 0;
 	prevTheta = 0;
 	# continue to add atoms until desired amount
 	while(index < atoms):
@@ -43,8 +47,10 @@ def createGeometry(bondLength, atoms, uniform, linear):
 				#	between 0 and 2Pi. Add to previous X and Y coords
 				theta = random.uniform(MIN_THETA, MAX_THETA);
 				theta += prevTheta
-				positionX += bondLength*math.cos(theta);
-				positionY += bondLength*math.sin(theta);
+				phi = random.uniform(MIN_PHI, MAX_PHI);
+				positionX += bondLength*math.sin(theta)*math.cos(phi);
+				positionY += bondLength*math.sin(theta)*math.sin(phi);
+				positionZ += bondLength*math.cos(theta);
 				prevTheta = theta;
 		else:
 			# Non uniform, so generate a new bondlength in the range
@@ -57,12 +63,14 @@ def createGeometry(bondLength, atoms, uniform, linear):
 				# 	update both X and Y coords with new bond length
 				theta = random.uniform(MIN_THETA, MAX_THETA);
 				theta += prevTheta;
-				positionX += bondLength*math.cos(theta);
-				positionY += bondLength*math.sin(theta);
+				phi = random.uniform(MIN_PHI, MAX_PHI);
+				positionX += bondLength*math.sin(theta)*math.cos(phi);
+				positionY += bondLength*math.sin(theta)*math.sin(phi);
+				positionZ += bondLength*math.cos(theta);
 				prevTheta = theta;
 
 		# create atom tuple and push it to the list
-		atom = tuple(("H", (positionX, positionY,0)));
+		atom = tuple(("H", (positionX, positionY, positionZ)));
 		geometry.append(atom);
 		index += 1;
 
