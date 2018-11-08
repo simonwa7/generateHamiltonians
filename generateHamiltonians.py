@@ -3,10 +3,12 @@ import random
 import math
 
 MIN_LENGTH = 0.1;
-MAX_LENGTH = 2;
+MAX_LENGTH = 1;
 
-MIN_THETA = 0;
-MAX_THETA = 2*math.pi;
+# minimum bond angle is pi-MIN_THETA
+# maximum bond angle is always 180
+MIN_THETA = -math.pi/3;
+MAX_THETA = math.pi/3;
 
 def createGeometry(bondLength, atoms, uniform, linear):
 	# This function is designed to created the intended geometry
@@ -26,6 +28,7 @@ def createGeometry(bondLength, atoms, uniform, linear):
 
 	positionX = 0;
 	positionY = 0;
+	prevTheta = 0;
 	# continue to add atoms until desired amount
 	while(index < atoms):
 		# Set the position for the next atom 
@@ -39,8 +42,10 @@ def createGeometry(bondLength, atoms, uniform, linear):
 				# 	stays the same, but theta is generated randomly 
 				#	between 0 and 2Pi. Add to previous X and Y coords
 				theta = random.uniform(MIN_THETA, MAX_THETA);
+				theta += prevTheta
 				positionX += bondLength*math.cos(theta);
 				positionY += bondLength*math.sin(theta);
+				prevTheta = theta;
 		else:
 			# Non uniform, so generate a new bondlength in the range
 			bondLength = random.uniform(MIN_LENGTH, MAX_LENGTH);
@@ -51,8 +56,10 @@ def createGeometry(bondLength, atoms, uniform, linear):
 				# non linear, so again, generate theta randomly and 
 				# 	update both X and Y coords with new bond length
 				theta = random.uniform(MIN_THETA, MAX_THETA);
+				theta += prevTheta;
 				positionX += bondLength*math.cos(theta);
 				positionY += bondLength*math.sin(theta);
+				prevTheta = theta;
 
 		# create atom tuple and push it to the list
 		atom = tuple(("H", (positionX, positionY,0)));
@@ -80,7 +87,7 @@ def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True,
 	H2.load_molecule();
 	H2.create_hamiltonians();
 	H2.create_circuits(mapping);
-	return H2.getHamiltonians(mapping);
+	return [H2.getHamiltonians(mapping), geometry];
 
 
 def main():
@@ -107,7 +114,7 @@ def main():
 	if(uniform):
 		bondLength = float(raw_input('''Please specify the bond length between atoms (angstroms).\nNOTE: MUST BE A NUMBER (DECIMAL VALUES ACCEPTED)\n'''));
 
-		while(bondLength < 1):
+		while(bondLength < 0):
 			bondLength = float(raw_input('''Could not understand input: {}. Please try again\n'''.format(bondLength)));
 
 	linear = raw_input('''Please specify whether you would like the chain to be straight (no y coordinates) (yes/no).\n''');
@@ -119,10 +126,13 @@ def main():
 	else:
 		linear = False;
 	
-	hamil = generateHChain(bondLength=bondLength, mapping=mapping, 
+	result = generateHChain(bondLength=bondLength, mapping=mapping, 
 						   atoms=atoms, uniform=uniform, linear=linear);
+
+	print("\n\n ----- GEOMETRY ----- \n\n");
+	print(result[1]);
 	print("\n\n ----- HAMILTONIAN ----- \n\n");
-	print(hamil);
+	print(result[0]);
 
 main();
 
