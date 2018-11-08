@@ -18,6 +18,12 @@ Through the command line, a client can define various parameters such as:
 * if they are separated by a uniform distance, what is that bond length - angstroms (float)</li>
 * if the chain is straight or randomly bent - yes/no</li>
 
+#### Examples:
+* [2 Dimensions or Linear Chains](https://github.com/simonwa7/generateHamiltonians/blob/master/exampleOutput.txt "2D Modeling")
+* [3 Dimensions](https://github.com/simonwa7/generateHamiltonians/blob/master/exampleOutput3D.txt "3D Modeling")
+
+#### Helpful Tools:
+* Check out [this online program](https://www.geogebra.org/3d?lang=en "3D Graphing") to take a look at what your molecule looks like!
 
 #### Dependencies:
 This script utilizes the open source projects OpenFerimon and OpenFermion-psi4 to generate molecular integral data and perform the necessary transformations.
