@@ -12,11 +12,12 @@ python generateHamiltonians.py
 
 Through the command line, a client can define various parameters such as:
 
-* transformation - Bravyi-Kitaev or Jordan-Wigner</li>
-* number of hydrogen atoms - integer</li>
-* whether or not the molecules are separated by a uniform distance - yes/no</li>
-* if they are separated by a uniform distance, what is that bond length - angstroms (float)</li>
-* if the chain is straight or randomly bent - yes/no</li>
+* transformation - Bravyi-Kitaev or Jordan-Wigner
+* number of hydrogen atoms - integer
+* whether or not the molecules are separated by a uniform distance - yes/no
+* if they are separated by a uniform distance, what is that bond length - angstroms (float)
+* if the chain is straight or randomly bent - yes/no
+* if you would like to model the molecule in 3D (yes) or 2D (no) - yes/no
 
 #### Examples:
 * [2 Dimensions or Linear Chains](https://github.com/simonwa7/generateHamiltonians/blob/master/exampleOutput.txt "2D Modeling")
