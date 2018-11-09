@@ -4,6 +4,7 @@ import os
 import time
 import numpy
 import sys
+from scipy.linalg import eigh
 
 ''' To Do:
             Incorporate ability to order Hamiltonian (separate class maybe?)'''
@@ -376,21 +377,14 @@ class GenerateCircuit():
         else:
             mapping_error(mapping);
 
-    def getMatrixRep(self, mapping):
+    def getEigen(self, mapping):
         if(mapping == "JW"):
-            # print(qubit_operator_sparse(self.qubit_hamiltonian_jw));
-            return qubit_operator_sparse(self.qubit_hamiltonian_jw);
+            matrix = get_sparse_operator(self.qubit_hamiltonian_jw).todense()
         elif(mapping == "BK"):
-            # print(qubit_operator_sparse(self.qubit_hamiltonian_bk));
-            return qubit_operator_sparse(self.qubit_hamiltonian_bk);
+            matrix = get_sparse_operator(self.qubit_hamiltonian_bk).todense()
         else:
-            mapping_error(mapping);
-
-    def lowestEigenvalues(self, mapping, N):
-        matrix = self.getMatrixRep(mapping);
-        davidson = SparseDavidson(matrix);
-        a = davidson.get_lowest_n(N);
-        return a[1];
+            mapping_error(mapping)
+        return eigh(matrix);
        
     def set_name(self, name):
         ''' Setter function '''

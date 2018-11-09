@@ -157,7 +157,7 @@ def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True,
 	H2.load_molecule();
 	H2.create_hamiltonians();
 	H2.create_circuits(mapping);
-	eigenValues = H2.lowestEigenvalues(mapping, 4);
+	eigenValues = H2.lowestEigenvalues(mapping, 2);
 	print(eigenValues);
 	# return [H2.getHamiltonians(mapping), geometry];
 
