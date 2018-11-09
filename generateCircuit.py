@@ -375,6 +375,22 @@ class GenerateCircuit():
             return self.qubit_hamiltonian_bk;
         else:
             mapping_error(mapping);
+
+    def getMatrixRep(self, mapping):
+        if(mapping == "JW"):
+            # print(qubit_operator_sparse(self.qubit_hamiltonian_jw));
+            return qubit_operator_sparse(self.qubit_hamiltonian_jw);
+        elif(mapping == "BK"):
+            # print(qubit_operator_sparse(self.qubit_hamiltonian_bk));
+            return qubit_operator_sparse(self.qubit_hamiltonian_bk);
+        else:
+            mapping_error(mapping);
+
+    def lowestEigenvalues(self, mapping, N):
+        matrix = self.getMatrixRep(mapping);
+        davidson = SparseDavidson(matrix);
+        a = davidson.get_lowest_n(N);
+        return a[1];
        
     def set_name(self, name):
         ''' Setter function '''
