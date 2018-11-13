@@ -5,7 +5,10 @@ import math
 MIN_LENGTH = 0.2;
 # MAX_LENGTH = 1.4828;
 MAX_LENGTH = 4;
-ITERATIONS = 25;
+ITERATIONS = 8;
+
+MIN_ANGLE = 0;
+MAX_ANGLE = 10; # (theta-1)*10 = degrees
 
 def createGeometryLinear(totalLength, middleLength): 
 	geometry = list();	
@@ -65,7 +68,7 @@ def rotatingH3():
 
 	bondLength = 0.7414; # middle atom at normal bond length for H2
 
-	for theta in range(0, 18):
+	for theta in range(MIN_ANGLE, MAX_ANGLE):
 		theta *= 10;
 		radian = theta*math.pi/180;
 		geometry = createGeometryRotated(bondLength, radian);
@@ -87,7 +90,7 @@ def wobblingH3():
 	
 	while(middleLength < totalLength):
 		bondLength = totalLength-middleLength;
-		for theta in range(0, 18):
+		for theta in range(MIN_ANGLE, MAX_ANGLE):
 			geometry = list();
 			geometry.append(("H", (0.,0.,0.)));
 			geometry.append(("H", (0.,0.,middleLength)));
