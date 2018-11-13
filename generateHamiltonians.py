@@ -155,11 +155,9 @@ def generateHChain(bondLength=.7414, mapping="BK", atoms=2, uniform=True,
 	H2.set_multiplicity(1);
 	H2.set_charge(atoms-2);
 	H2.load_molecule();
-	H2.create_hamiltonians();
-	H2.create_circuits(mapping);
-	eigenValues = H2.lowestEigenvalues(mapping, 2);
-	print(eigenValues);
-	# return [H2.getHamiltonians(mapping), geometry];
+	H2.create_hamiltonians();  # need to create fermion hamiltonian
+	H2.create_circuits(mapping);  # maps fermion to qubit hamil and circuit
+	return [H2.getHamiltonians(mapping), geometry];
 
 
 def main():
