@@ -104,7 +104,7 @@ def wobblingH3():
 			data = getLowest(geometry, middleLength, radian=radian);
 			# result = [0, middleLength, positionY, positionX, theta, data[0], data[1]];
 			result = [middleLength, theta, data[0], data[1]];
-			file.write("{} {} {} {}\n".format(middleLength, theta, data[0] data[1]));
+			file.write("{} {} {} {}\n".format(result[0], result[1], result[2], result[3]));
 			results.append(result);
 
 		middleLength += (MAX_LENGTH-MIN_LENGTH)/(ITERATIONS)
