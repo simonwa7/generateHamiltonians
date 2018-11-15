@@ -27,7 +27,8 @@ for i = 1:MAX_ANGLE
 end
 
 EigenValues
-
+lengths
+min(EigenValues)
 % Surface plot
 figure;
 surf(lengths, angles, EigenValues)

@@ -82,9 +82,9 @@ def rotatingH3():
 	file.close();
 
 def wobblingH3():
-	results;
-	eigenvalues = [][];
-	energies = [][];
+	results = [];
+	eigenvalues = [[]];
+	energies = [[]];
 
 	middleLength = MIN_LENGTH;
 	totalLength = MAX_LENGTH;
