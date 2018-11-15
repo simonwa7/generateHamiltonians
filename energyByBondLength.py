@@ -83,13 +83,11 @@ def rotatingH3():
 
 def wobblingH3():
 	results = [];
-	eigenvalues = [[]];
-	energies = [[]];
 
 	middleLength = MIN_LENGTH;
 	totalLength = MAX_LENGTH;
 
-	i = 0;
+	
 	while(middleLength < totalLength):
 		bondLength = totalLength-middleLength;
 		for theta in range(MIN_ANGLE, MAX_ANGLE):
@@ -106,16 +104,9 @@ def wobblingH3():
 			data = getLowest(geometry, middleLength, radian=radian);
 			# result = [0, middleLength, positionY, positionX, theta, data[0], data[1]];
 			result = [middleLength, theta, data[0], data[1]];
-			eigenvalues[theta/10][i] = data[0];
-			energies[theta/10][i] = data[1];
 			results.append(result);
 
-		i += 1;
 		middleLength += (MAX_LENGTH-MIN_LENGTH)/(ITERATIONS)
-
-	file = open("wobblingEigenValues.txt", "w");
-	file.write(eigenvalues);
-	file.close;
 
 	file = open("wobblingEnergies.txt", "w");
 	for data in results: 
