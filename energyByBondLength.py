@@ -5,7 +5,7 @@ import math
 MIN_LENGTH = 0.2;
 # MAX_LENGTH = 1.4828;
 MAX_LENGTH = 4;
-ITERATIONS = 8;
+ITERATIONS = 25;
 
 MIN_ANGLE = 0;
 MAX_ANGLE = 10; # (theta-1)*10 = degrees
@@ -102,14 +102,15 @@ def wobblingH3():
 			geometry.append(("H", (0., positionY, positionX)));
 			print(geometry)
 			data = getLowest(geometry, middleLength, radian=radian);
-			result = [0, middleLength, positionY, positionX, theta, data[0], data[1]];
+			# result = [0, middleLength, positionY, positionX, theta, data[0], data[1]];
+			result = [middleLength, theta, data[0], data[1]];
 			results.append(result);
 
 		middleLength += (MAX_LENGTH-MIN_LENGTH)/(ITERATIONS)
 
 	file = open("wobblingEnergies.txt", "w");
 	for data in results: 
-		file.write("{} {} {}\n".format(data[0], data[1], data[2]));
+		file.write("{} {} {} {}\n".format(data[0], data[1], data[2], data[3]));
 	file.close();
 
 # linearH3();
