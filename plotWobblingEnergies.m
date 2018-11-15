@@ -1,15 +1,10 @@
-function plotWobblingEnergies(EnergyData)
+function plotWobblingEnergies(EnergyData, MAX_ANGLE, MIN_LENGTH, MAX_LENGTH, ITERATIONS)
 %EnergyData should be a matrix where each row is of
 % the form "middleLength, angle, eigenvalue, hf_energy"
 %And the procession of the data goes:
 %   for each length:
 %       for each angle:
 %           middleLength angle eigenvalue hf_energy
-
-MAX_ANGLE = 10;
-MIN_LENGTH = 0.2;
-MAX_LENGTH = 4;
-ITERATIONS = 25;
 
 angles = zeros(MAX_ANGLE,1);
 lengths = zeros(ITERATIONS,1);
@@ -22,14 +17,10 @@ for i = 1:MAX_ANGLE
     for j = 1:ITERATIONS
         lengths(j) = MIN_LENGTH+(j-1)*(MAX_LENGTH-MIN_LENGTH)/ITERATIONS;
         EigenValues(i, j) = EnergyData(datapoint, 3);
-        HartreeFockEnergies(i, j) = EnergyData(datapoint, 4);
-        %EnergyMatrix(i, j) = datapoint;   
+        HartreeFockEnergies(i, j) = EnergyData(datapoint, 4); 
         datapoint = datapoint + 1;
     end
 end
-
-min(EigenValues,[],'all')
-min(HartreeFockEnergies,[],'all')
 
 % Surface plot
 figure;
