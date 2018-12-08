@@ -167,7 +167,7 @@ class OpenFermionWrapper():
         else:
             self.molecular_hamiltonian = self.molecule.get_molecular_hamiltonian()
         
-        self.fermion_hamiltonian = get_fermion_operator(molecular_hamiltonian)
+        self.fermion_hamiltonian = get_fermion_operator(self.molecular_hamiltonian)
         
         self.n_qubits = count_qubits(self.fermion_hamiltonian)
 
