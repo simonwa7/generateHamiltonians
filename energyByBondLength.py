@@ -71,7 +71,7 @@ def wobblingH3():
 	middleLength = MIN_LENGTH;
 	totalLength = MAX_LENGTH;
 
-	dataFilename = "GroundStateEnergies_" + BASIS + "_" + MIN_LENGTH + "_" + MAX_LENGTH + "_" + MIN_ANGLE + "_" + MAX_ANGLE + "_" + ITERATIONS;
+	dataFilename = "GroundStateEnergies_"
 	file = open(dataFilename, "w");
 	
 	while(middleLength < totalLength-MIN_LENGTH):
