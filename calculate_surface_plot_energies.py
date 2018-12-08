@@ -5,8 +5,8 @@ MIN_LENGTH = 0.2
 MAX_LENGTH = 3
 ITERATIONS = 10
 
-MIN_ANGLE = -16 # (theta-1)*10 = degrees
-MAX_ANGLE = 18
+MIN_ANGLE = -17
+MAX_ANGLE = 17
 
 BASIS = 'sto-3g'
 
@@ -23,7 +23,7 @@ def getEnergy(geometry):
 	molecule.create_hamiltonians()
 
 	molecule.set_ground_state_energy()
-	eigenvalue = molecule.set_ground_state_energy()
+	eigenvalue = molecule.ground_state_energy
 	return [energy, eigenvalue]
 
 def main():
@@ -39,7 +39,7 @@ def main():
 	while(middleLength < totalLength-MIN_LENGTH):
 		bondLength = totalLength-middleLength
 		
-		for theta in range(MIN_ANGLE, MAX_ANGLE):
+		for theta in range(MIN_ANGLE, MAX_ANGLE+1):
 			print(middleLength, theta)
 
 			geometry = list()
