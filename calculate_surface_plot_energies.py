@@ -23,7 +23,7 @@ def getEnergy(geometry):
 	molecule.create_hamiltonians()
 
 	molecule.set_ground_state_energy()
-	eigenvalue = molecule.set_ground_state_energy
+	eigenvalue = molecule.set_ground_state_energy()
 	return [energy, eigenvalue]
 
 def main():
